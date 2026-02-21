@@ -1,16 +1,37 @@
 YAML 
 
 name: Mi Primer Pipeline de Calidad 
-on: [push] # Se activa con cada subida de código 
+
+ 
+
+on: [push] # Se activa cada vez que subimos código 
+
+ 
+
 jobs: 
+
   verificacion: 
+
     runs-on: ubuntu-latest # El robot usará una computadora con Linux 
+
     steps: 
-      - name: Descargar el código 
+
+      - name: Descargar el código del repositorio 
+
         uses: actions/checkout@v4 
-      - name: Instalar Node.js 
+
+ 
+
+      - name: Configurar entorno de Node.js 
+
         uses: actions/setup-node@v4 
+
         with: 
+
           node-version: '20' 
-      - name: Ejecutar mi prueba de calidad 
-        run: node index.js 
+
+ 
+
+      - name: Ejecutar prueba de calidad 
+
+        run: node index.js # Aquí es donde corre tu código
